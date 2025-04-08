@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-0+$&$m*$gvpy2-cevgzsiw%4bd#5fhl2tci#a)_%9p7%n6@dx=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['zany-fishstick-x5vqw6r6r94xh6j7g-8000.app.github.dev', 'localhost']
 
 
 # Application definition
@@ -142,3 +142,10 @@ CORS_ALLOW_METHODS = [
 CORS_ALLOW_HEADERS = [
     '*',
 ]
+
+# Django REST Framework configuration
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
+}

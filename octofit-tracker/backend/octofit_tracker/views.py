@@ -29,10 +29,11 @@ class WorkoutViewSet(ModelViewSet):
 
 @api_view(['GET'])
 def api_root(request, format=None):
+    base_url = 'https://zany-fishstick-x5vqw6r6r94xh6j7g-8000.app.github.dev/'
     return Response({
-        'users': 'api/users/',
-        'teams': 'api/teams/',
-        'activity': 'api/activity/',
-        'leaderboard': 'api/leaderboard/',
-        'workouts': 'api/workouts/',
+        'users': base_url + 'api/users/',
+        'teams': base_url + 'api/teams/',
+        'activity': base_url + 'api/activity/',
+        'leaderboard': base_url + 'api/leaderboard/',
+        'workouts': base_url + 'api/workouts/',
     })
