@@ -15,8 +15,23 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from . import views
+
+# Define a router and register the viewsets for users, teams, activity, leaderboard, and workouts
+router = DefaultRouter()
+router.register(r'users', views.UserViewSet, basename='user')
+router.register(r'teams', views.TeamViewSet, basename='team')
+router.register(r'activity', views.ActivityViewSet, basename='activity')
+router.register(r'leaderboard', views.LeaderboardViewSet, basename='leaderboard')
+router.register(r'workouts', views.WorkoutViewSet, basename='workout')
+
+# Define the API root
+api_root = views.api_root
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path('', api_root, name='api-root'),
+    path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
 ]
